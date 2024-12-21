@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../include/header',{title:"show transalte"})%>
+</head>
+<body>
+<section>
+    <%- include('../include/navbar')%>
+</section>
+<style>
+    button,table,tr,td,h2,ul,li{
+    font-family: cursive;
+    padding: 0px;
+    margin: 0px;
+    }
+    </style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <% if (messages.success) { %>
+                <% messages.success.forEach(function(message) { %>
+                    <div class="alert alert-success"><%= message %></div>
+                <% }); %>
+            <% } %>
+            <h2 class="text-danger text-center mt-3">Show Transalate</h2>
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr class="text-center">
+                        <th>Chapter No</th>
+                        <th>Structure No</th>
+                        <th>Translation</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% rows.forEach(function(item){ %>
+                       <tr class="text-center">
+                            <td><%= item.chapter_no %></td>
+                            <td><%= item.structure_no %></td>
+                            <td><%= item.translate %></td>
+                            <td><a href="/edit_transalte/<%= item.chapter_no %>" class="btn btn-success btn-sm">Edit</a></td>
+                            <td><a href="/delete_transalte/<%= item.chapter_no %>" class="btn btn-danger btn-sm">Delete</a></td>
+                      </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <ul class="pagination pagination-sm justify-content-center">
+                <% if (currentPage > 1) { %>
+                    <li class="page-item"><a class="page-link" href="/show_transalte/?page=<%= currentPage - 1 %>">Previous</a></li>
+                <% } %>
+                <% for (let i = 1; i <= totalPages; i++) { %>
+                    <li class="page-item"><a class="page-link" href="/show_transalte/?page=<%= i %>" <%= currentPage === i  %>><%= i %></a></li>
+                <% } %>
+                <% if (currentPage < totalPages) { %>
+                    <li class="page-item"><a class="page-link" href="/show_transalte/?page=<%= currentPage + 1 %>">Next</a></li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+<!-- <section>
+    <%- include('../include/footer')%>
+</section> -->
+</body>
+</html>
+

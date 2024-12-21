@@ -1,0 +1,35 @@
+{
+  "name": "translate",
+  "version": "0.0.1",
+  "description": "node js with transalate express js",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js -e js,html,css,ejs,json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "node js"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "+",
+    "express",
+    "+",
+    "body-parser",
+    "+",
+    "nodemon"
+  ],
+  "author": "atulya",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.18.1",
+    "mysql2": "^3.11.5",
+    "nodemon": "^3.1.9"
+  }
+}

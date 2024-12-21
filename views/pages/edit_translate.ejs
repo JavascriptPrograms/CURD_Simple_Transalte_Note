@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../include/header',{title:'Edit Translate'}) %>
+</head>
+<body>
+    <style>
+    button,label,textarea,input,h2{
+    font-family: cursive;
+    padding: 0px;
+    margin: 0px;
+    }
+    </style>
+    <div class="container-fluid">
+        <% if(row){%>
+        <% row.forEach((item)=>{ %>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <% if (messages.success) { %>
+                        <% messages.success.forEach(function(message) { %>
+                            <div class="alert alert-success"><%= message %></div>
+                        <% }); %>
+                    <% } %>
+                    <h2 class="text-danger text-center mt-3">Edit Translate</h2>
+                    <form method="post" action="/update_transalte/<%= item.chapter_no  %>">
+                        <div class="mb-3 mt-3">
+                            <label for="Structure_no" class="form-label">Structure No:</label>
+                            <input type="text" class="form-control" id="Structure_no" value="<%= item.structure_no %>" name="Structure_no">
+                          </div>
+                        <div class="mb-3">
+                          <label for="Transalate" class="form-label">Transalate:</label>
+                          <textarea  class="form-control" id="Transalate" name="Transalate" placeholder="<%= item.translate  %>" ></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" style="font-family: cursive;">Update</button>
+                  </form>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        <% }) %>
+        <% }else{ %>
+            <p>No data found.</p>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../include/header',{title:"add transalte"})%>
+</head>
+<body>
+<section>
+    <%- include('../include/navbar')%>
+</section>
+<div cass="container-fluid">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <% if (messages.success) { %>
+            <% messages.success.forEach(function(message) { %>
+                <div class="alert alert-success"><%= message %></div>
+            <% }); %>
+          <% } %>
+            <h2 class="text-danger mt-3 text-center">Add Translate</h2>
+            <form action="/submit_transale" method="post">
+                <div class="mb-3 mt-3">
+                  <label for="Chapter_no" class="form-label">Chapter No:</label>
+                  <input type="text" class="form-control" id="Chapter_no" placeholder="Enter Chapter_no" name="Chapter_no">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="Structure_no" class="form-label">Structure No:</label>
+                    <input type="text" class="form-control" id="Structure_no" placeholder="Enter Structure_no" name="Structure_no">
+                  </div>
+                <div class="mb-3">
+                  <label for="Transalate" class="form-label">Transalate:</label>
+                  <textarea  class="form-control" id="Transalate" name="Transalate" placeholder="Enter Transalate" ></textarea>
+                </div>
+               
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+              </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+<!-- <section>
+  <%- include('../include/footer')%>
+</section> -->
+</body>
+</html>
